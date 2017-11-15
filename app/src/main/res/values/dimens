@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="login_tips_height">106.0dip</dimen>
+    <dimen name="large_button_height">42.0dip</dimen>
+    <dimen name="corner_radius">2.0dip</dimen>
+</resources>

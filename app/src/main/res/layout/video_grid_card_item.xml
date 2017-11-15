@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.kotlin.bilibili.widget.CardFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.kotlin.bilibili.widget.ForegroundRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="?selectableItemBackgroundBorderless"
+        android:paddingBottom="4dp">
+
+        <com.kotlin.bilibili.widget.ScalableImageView
+            android:id="@id/cover"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="fitXY"
+            app:aspectRadioHeight="10"
+            app:aspectRadioWidth="16" />
+
+        <TextView
+            android:id="@id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cover"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:textAppearance="@style/TextAppearance.App.Subtitle"
+            android:textColor="?android:textColorPrimary" />
+
+        <!--<android.support.v4.widget.Space-->
+        <!--android:id="@+id/anchor"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="20dp"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_below="@+id/title"-->
+        <!--android:layout_centerHorizontal="true"/>-->
+    </com.kotlin.bilibili.widget.ForegroundRelativeLayout>
+</com.kotlin.bilibili.widget.CardFrameLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/selector_home" android:id="@id/nav_home" android:title="@string/nav_home" />
+    <item android:icon="@drawable/selector_category" android:id="@id/nav_category" android:title="@string/main_page_category" />
+    <item android:icon="@drawable/selector_dynamic" android:id="@id/nav_attention" android:title="@string/main_page_attentions" />
+    <item android:icon="@drawable/selector_communicate" android:id="@id/nav_communicate" android:title="@string/main_page_communicate" />
+</menu>
