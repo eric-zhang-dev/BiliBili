@@ -36,7 +36,7 @@ class MainContentFragment : RxBaseFragment<MainPresenter>(), MainImpl.View {
 
     override fun initData() {
         val fm = childFragmentManager
-        mFragments = ArrayList<Fragment>()
+        mFragments = ArrayList()
         mFragments!!.add(HomeFragment(Constants.HOME_TAG_9))
         mFragments!!.add(HomeFragment(Constants.HOME_TAG_1))
         mFragments!!.add(HomeFragment(Constants.HOME_TAG_2))

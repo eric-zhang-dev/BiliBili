@@ -17,6 +17,7 @@
         android:layout_width="288.0dp"
         android:layout_height="match_parent"
         android:layout_gravity="left"
+        android:overScrollMode="never"
         app:headerLayout="@layout/drawer_head_layout"
         app:menu="@menu/main_drawer_menu" />
 </android.support.v4.widget.DrawerLayout>

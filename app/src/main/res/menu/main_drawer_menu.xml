@@ -60,5 +60,27 @@
             android:icon="@drawable/vector_navigation_unicom"
             android:title="@string/nav_unicom_service"
             android:visible="false" />
+        <item
+            android:id="@id/nav_vip"
+            android:checkable="false"
+            android:icon="@drawable/vector_navigation_vip"
+            android:title="@string/my_vip" />
+        <item
+            android:id="@id/nav_unicom_service"
+            android:checkable="false"
+            android:icon="@drawable/vector_navigation_unicom"
+            android:title="@string/nav_unicom_service"
+            android:visible="false" />
+        <item
+            android:id="@id/nav_vip"
+            android:checkable="false"
+            android:icon="@drawable/vector_navigation_vip"
+            android:title="@string/my_vip" />
+        <item
+            android:id="@id/nav_unicom_service"
+            android:checkable="false"
+            android:icon="@drawable/vector_navigation_unicom"
+            android:title="@string/nav_unicom_service"
+            android:visible="false" />
     </group>
 </menu>

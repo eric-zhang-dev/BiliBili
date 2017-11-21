@@ -57,7 +57,7 @@ class HomeFragment(tag: Int) : RxBaseFragment<HomePresenter>(), HomeImpl.View, L
 
     override fun initData() {
         mPresenter.getAnimaData(tid, pn)
-        recycler_view.layoutManager = GridLayoutManager(context, 2) as RecyclerView.LayoutManager?
+        recycler_view.layoutManager = GridLayoutManager(context, 2)
         mAdapter = HomeAdapter(mContext, 0)
         recycler_view.adapter = mAdapter
         mAdapter!!.setmOnItemClickListener(this)
