@@ -38,12 +38,12 @@ kotlin 语言仿哔哩哔哩app
 - **com.squareup.okhttp3:okhttp**：网络框架
 - **io.reactivex:rxjava**：响应式编程完美结合retrofit
 - **io.reactivex:rxandroid**：
-~~- **butterknife**：注解库，用于简化findView和onClick操作~~
-~~- **com.google.zxing**：用于二维码扫描~~
+- ~~**butterknife**：注解库，用于简化findView和onClick操作~~
+- ~~**com.google.zxing**：用于二维码扫描~~
 - **com.github.bumptech.glide**：所有的图片请求管理库
 - **com.google.code.gson**：Json-Model解析库，新API已弃用XML数据格式
-~~- **com.squareup.picasso:picasso**：图片请求管理库~~
-~~- **com.idescout.sql:sqlscout-server**：可视化数据库~~
+- ~~**com.squareup.picasso:picasso**：图片请求管理库~~
+- ~~**com.idescout.sql:sqlscout-server**：可视化数据库~~
 
 
 
