@@ -8,7 +8,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?colorPrimary">
+
         <include layout="@layout/toolbar" />
+
         <android.support.design.widget.TabLayout
             android:id="@id/tabs"
             android:layout_width="match_parent"
@@ -30,7 +32,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:itemBackground="@android:color/white"
+        app:itemBackground="@color/white"
         app:menu="@menu/bottom_navigation" />
-
 </android.support.design.widget.CoordinatorLayout>

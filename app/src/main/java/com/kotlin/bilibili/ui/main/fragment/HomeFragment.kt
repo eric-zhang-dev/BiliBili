@@ -1,15 +1,19 @@
 package com.kotlin.bilibili.ui.main.fragment
 
+import android.content.Intent
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.widget.Toast
 import com.kotlin.bilibili.R
 import com.kotlin.bilibili.base.RxBaseFragment
+import com.kotlin.bilibili.klog.KLog
 import com.kotlin.bilibili.modle.Archives
 import com.kotlin.bilibili.modle.Data
 import com.kotlin.bilibili.ui.main.fragment.adapter.HomeAdapter
 import com.kotlin.bilibili.ui.main.fragment.impl.HomeImpl
 import com.kotlin.bilibili.ui.main.fragment.presenter.HomePresenter
+import com.kotlin.bilibili.ui.play.PlayActivity
 import com.kotlin.bilibili.widget.LoadMoreRecyclerView
 import kotlinx.android.synthetic.main.ui_fragment_home_list.*
 
@@ -53,6 +57,7 @@ class HomeFragment(tag: Int) : RxBaseFragment<HomePresenter>(), HomeImpl.View, L
     }
 
     override fun onVideoItemClick(d: Archives) {
+        startActivity(Intent(activity,PlayActivity::class.java).putExtra("aid",d.aid))
     }
 
     override fun initData() {
