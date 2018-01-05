@@ -3,10 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BiliBili.iml" filepath="$PROJECT_DIR$/BiliBili.iml" />
-      <module fileurl="file://D:\ZhangYue\project\BiliBili\BiliBili.iml" filepath="D:\ZhangYue\project\BiliBili\BiliBili.iml" />
-      <module fileurl="file://D:\ZhangYue\project\BiliBili\aaa\aaa.iml" filepath="D:\ZhangYue\project\BiliBili\aaa\aaa.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://D:\ZhangYue\project\BiliBili\app\app.iml" filepath="D:\ZhangYue\project\BiliBili\app\app.iml" />
     </modules>
   </component>
 </project>
