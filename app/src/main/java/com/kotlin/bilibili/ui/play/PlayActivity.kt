@@ -35,6 +35,7 @@ class PlayActivity : BaseActivity() {
         webview.settings.javaScriptCanOpenWindowsAutomatically = true //支持通过JS打开新窗口
         webview.settings.loadsImagesAutomatically = true //支持自动加载图片
         webview.settings.defaultTextEncodingName = "utf-8"//设置编码格式
+        webview.settings.domStorageEnabled = true
 //        https://m.bilibili.com/video/av17975751.html
         var a:String = String.format("https://m.bilibili.com/video/av%s.html", aid)
         webview.loadUrl(a)
