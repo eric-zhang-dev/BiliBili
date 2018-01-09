@@ -1,10 +1,15 @@
 package com.kotlin.bilibili.ui.play
 
 import android.annotation.SuppressLint
+import android.os.Build
+import android.support.annotation.RequiresApi
 import android.webkit.*
 import com.kotlin.bilibili.R
 import com.kotlin.bilibili.base.BaseActivity
 import kotlinx.android.synthetic.main.ui_activity_play.*
+import android.view.ViewGroup
+
+
 
 /**
  * Created by Eric.zhang on 2018/1/5.
@@ -40,10 +45,23 @@ class PlayActivity : BaseActivity() {
         var a:String = String.format("https://m.bilibili.com/video/av%s.html", aid)
         webview.loadUrl(a)
         webview.webViewClient = object :WebViewClient(){
+            @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
             override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
                 view!!.loadUrl(request!!.url.toString())
                 return true
             }
         }
+    }
+
+    override fun onDestroy() {
+        if (webview != null) {
+            webview.loadDataWithBaseURL(null, "", "text/html", "utf-8", null)
+            webview.clearHistory()
+
+            (webview.parent as ViewGroup).removeView(webview)
+            webview.destroy()
+//            webview = null
+        }
+        super.onDestroy()
     }
 }
