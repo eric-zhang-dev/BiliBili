@@ -12,6 +12,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 
+//https://github.com/codeestX/GeekNews
 public class MainActivity extends AppCompatActivity {
     String TAG = this.getClass().getSimpleName();
 
