@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/button_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="14.0dip"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingLeft="28.0dip"
+    android:paddingRight="28.0dip">
+
+    <com.bilibili.magicasakura.widgets.TintButton
+        android:id="@id/btn_register"
+        android:layout_width="0.0dip"
+        android:layout_height="@dimen/large_button_height"
+        android:layout_gravity="center"
+        android:layout_weight="1.0"
+        android:background="@drawable/selector_button_stroke_pink"
+        android:gravity="center"
+        android:text="@string/register_account"
+        android:textAppearance="@style/TextAppearance.App.Title"
+        android:textColor="@color/selector_text_pink" />
+
+    <com.bilibili.magicasakura.widgets.TintButton
+        android:id="@id/btn_login"
+        android:layout_width="0.0dip"
+        android:layout_height="@dimen/large_button_height"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="12.0dip"
+        android:layout_weight="1.0"
+        android:background="@drawable/selector_button_solid_pink"
+        android:enabled="false"
+        android:gravity="center"
+        android:text="@string/mycenter_login_text"
+        android:textColor="@color/white" />
+</LinearLayout>

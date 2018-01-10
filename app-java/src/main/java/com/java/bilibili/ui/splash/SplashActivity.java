@@ -12,17 +12,17 @@ import butterknife.BindView;
 
 
 public class SplashActivity extends BaseActivity implements View.OnClickListener {
-    @BindView(R.id.btn_register)
-    TintButton btn_register;
+//    @BindView(R.id.btn_register)
+//    TintButton btn_register;
 
     @Override
     protected int getLayout() {
-        return R.layout.ui_activity_login;
+        return R.layout.layout;
     }
 
     @Override
     protected void initEventAndData() {
-        btn_register.setOnClickListener(this);
+//        btn_register.setOnClickListener(this);
     }
 
     @Override
