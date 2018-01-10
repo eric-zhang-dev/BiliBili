@@ -9,8 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.kotlin.bilibili.base.BasePresenter;
-import com.kotlin.bilibili.base.BaseView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 
 public abstract class RxBaseFragment<T extends BasePresenter> extends Fragment implements BaseView {
@@ -19,7 +19,7 @@ public abstract class RxBaseFragment<T extends BasePresenter> extends Fragment i
     protected View mView;
     protected Activity mActivity;
     protected Context mContext;
-//    private Unbinder mUnBinder;
+    private Unbinder mUnBinder;
     protected boolean isInited = false;
 
     @Override
@@ -42,7 +42,7 @@ public abstract class RxBaseFragment<T extends BasePresenter> extends Fragment i
         super.onViewCreated(view, savedInstanceState);
         mPresenter = setPresenter();
         mPresenter.attachView(this);
-//        mUnBinder = ButterKnife.bind(this, view);
+        mUnBinder = ButterKnife.bind(this, view);
         if (savedInstanceState == null) {
             if (!isHidden()) {
                 isInited = true;
@@ -70,7 +70,7 @@ public abstract class RxBaseFragment<T extends BasePresenter> extends Fragment i
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-//        mUnBinder.unbind();
+        mUnBinder.unbind();
     }
 
     @Override

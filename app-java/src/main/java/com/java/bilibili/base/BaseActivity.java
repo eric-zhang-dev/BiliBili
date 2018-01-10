@@ -8,7 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.java.bilibili.MainApplication;
-import com.kotlin.bilibili.manager.AppManager;
+import com.java.bilibili.manager.AppManager;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;

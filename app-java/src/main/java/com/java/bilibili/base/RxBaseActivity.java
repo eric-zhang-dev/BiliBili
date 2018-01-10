@@ -6,9 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.kotlin.bilibili.base.BasePresenter;
-import com.kotlin.bilibili.base.BaseView;
-import com.kotlin.bilibili.manager.AppManager;
+import com.java.bilibili.manager.AppManager;
 
 
 public abstract class RxBaseActivity<T extends BasePresenter> extends AppCompatActivity implements BaseView {
@@ -22,7 +20,7 @@ public abstract class RxBaseActivity<T extends BasePresenter> extends AppCompatA
         setContentView(layout());
         mPresenter = setPresenter();
         mActivity = this;
-        AppManager.Companion.getAppManager().addActivity(mActivity);
+        AppManager.getAppManager().addActivity(mActivity);
         if (mPresenter != null) {
             mPresenter.attachView(this);
         }
@@ -31,7 +29,7 @@ public abstract class RxBaseActivity<T extends BasePresenter> extends AppCompatA
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        AppManager.Companion.getAppManager().finishActivity(mActivity);
+        AppManager.getAppManager().finishActivity(mActivity);
         if (mPresenter != null) {
             mPresenter.detachView();
         }
