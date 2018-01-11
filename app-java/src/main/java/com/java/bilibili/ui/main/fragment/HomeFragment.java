@@ -23,7 +23,7 @@ public class HomeFragment extends RxBaseFragment<HomePresenter> implements HomeI
     @BindView(R.id.swiperefresh_layout)
     SwipeRefreshLayout swipeRefreshLayout;
     @BindView(R.id.recycler_view)
-    RecyclerView recyclerView;
+    LoadMoreRecyclerView recyclerView;
     int tid = 24;
     int pn = 0;
     private String tag;
@@ -50,7 +50,7 @@ public class HomeFragment extends RxBaseFragment<HomePresenter> implements HomeI
 
     @Override
     public void initDataInfo(Data data) {
-//        swipeRefreshLayout.isRefreshing = false
+        swipeRefreshLayout.setRefreshing(false);
         mAdapter.addDynamicVideo(data.getArchives());
     }
 
@@ -73,7 +73,7 @@ public class HomeFragment extends RxBaseFragment<HomePresenter> implements HomeI
         mAdapter = new HomeAdapter(mContext, 0);
         recyclerView.setAdapter(mAdapter);
         mAdapter.setmOnItemClickListener(this);
-//        recyclerView.setOnLoadMoreLinstener(this);
+        recyclerView.setOnLoadMoreLinstener(this);
         swipeRefreshLayout.setOnRefreshListener(this);
         swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
     }
@@ -82,7 +82,7 @@ public class HomeFragment extends RxBaseFragment<HomePresenter> implements HomeI
     public void onLoadMore() {
         isRefresh = false;
         pn++;
-//        recyclerView.setLoading(false)
+        recyclerView.setLoading(false);
         mPresenter.getAnimaData(tid, pn);
     }
 
@@ -90,8 +90,8 @@ public class HomeFragment extends RxBaseFragment<HomePresenter> implements HomeI
     public void onRefresh() {
         isRefresh = true;
         pn = 0;
-//        recyclerView.setEnableLoadMore(true);
-//        recyclerView.setLodingViewState(LoadMoreRecyclerView.STATE_REFRESHING)
+        recyclerView.setEnableLoadMore(true);
+        recyclerView.setLoadingViewState(LoadMoreRecyclerView.STATE_REFRESHING);
         mPresenter.getAnimaData(tid, pn);
     }
 
