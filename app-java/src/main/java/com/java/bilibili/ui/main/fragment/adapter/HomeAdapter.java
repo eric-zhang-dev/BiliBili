@@ -42,6 +42,7 @@ public class HomeAdapter extends RecyclerView.Adapter{
         } else {
             mVideos.addAll(data);
         }
+        notifyDataSetChanged();
     }
 
     public void clearDynamicVideo() {

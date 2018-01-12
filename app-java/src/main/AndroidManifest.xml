@@ -21,6 +21,7 @@
             android:name=".ui.main.MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
+            android:theme="@style/MainActivityColorTranslucentTheme"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <!--<activity-->
             <!--android:name=".ui.play.PlayActivity"-->

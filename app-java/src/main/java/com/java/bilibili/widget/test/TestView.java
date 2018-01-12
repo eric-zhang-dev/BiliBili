@@ -11,7 +11,7 @@ import android.view.View;
  * Created by Eric.zhang on 2018/1/10.
  */
 
-class TestView extends View {
+public class TestView extends View {
     String TAG = this.getClass().getSimpleName();
 
     public TestView(Context context, @Nullable AttributeSet attrs) {
@@ -66,5 +66,5 @@ class TestView extends View {
         Log.e(TAG, "TestView --->onTouchEvent: " + event.getAction());
         return super.onTouchEvent(event);
     }
-}
+            }
 

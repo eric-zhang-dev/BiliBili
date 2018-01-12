@@ -14,7 +14,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 public abstract class BaseActivity extends AppCompatActivity {
-    protected Activity activity;
+    protected Activity mActivity;
     private Unbinder mUnBinder;
     protected MainApplication app = MainApplication.getInstance();
 
@@ -23,7 +23,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(getLayout());
         mUnBinder = ButterKnife.bind(this);
-        activity = this;
+        mActivity = this;
         AppManager.getAppManager().addActivity(this);
         initEventAndData();
     }

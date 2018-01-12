@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.java.bilibili.R;
 import com.java.bilibili.base.RxBaseFragment;
@@ -97,6 +98,6 @@ public class HomeFragment extends RxBaseFragment<HomePresenter> implements HomeI
 
     @Override
     public void onVideoItemClick(Data.Archives aid) {
-
+        Toast.makeText(mActivity, aid.getTitle(), Toast.LENGTH_LONG).show();
     }
 }
