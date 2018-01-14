@@ -714,8 +714,6 @@ public class NetWorkUtils {
 
     /**
      * 判断移动网络是否打开，需要ACCESS_NETWORK_STATE权限
-     *
-     * @param context 上下文
      * @return true：打开；false：关闭
      */
     public static boolean isMobileNetworkOpen(Context context) {
