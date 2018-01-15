@@ -1,12 +1,14 @@
 package com.java.bilibili.http;
 
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.java.bilibili.http.api.Api;
+import com.java.bilibili.klog.KLog;
 
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -28,13 +30,18 @@ public class RetrofitHelper {
                 .connectTimeout(3000, TimeUnit.SECONDS)
                 .writeTimeout(3000, TimeUnit.SECONDS)
                 .readTimeout(3000, TimeUnit.SECONDS)
-//                .addInterceptor(interceptor)
+                .addInterceptor(new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
+                    @Override
+                    public void log(String message) {
+                        KLog.json(message);
+                    }
+                }).setLevel(HttpLoggingInterceptor.Level.BASIC))
                 .build();
 
         mRetrofit = new Retrofit.Builder()
                 .baseUrl(ServerAddress.base_url)
                 .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(mClient)
                 .build();
         initService();

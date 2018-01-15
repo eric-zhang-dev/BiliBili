@@ -70,33 +70,33 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         getSupportFragmentManager().beginTransaction().replace(R.id.main_right_fragment, fragment, tag).commit();
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (drawer_layout.isDrawerOpen(drawer)) {
-            drawer_layout.closeDrawers();
-            return false;
-        }
-        switch (keyCode) {
-            case KeyEvent.KEYCODE_BACK:
-                new MaterialDialog.Builder(this)
-                        .title("退出")
-                        .content("是否退出app")
-                        .positiveText("是")
-                        .negativeText("否").onAny(new MaterialDialog.SingleButtonCallback() {
-                    @Override
-                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                        switch (which) {
-                            case POSITIVE:
-                                AppManager.getAppManager().AppExit(mActivity);
-                                break;
-                            case NEGATIVE:
-                                break;
-                        }
-                    }
-                })
-                        .show();
-                return false;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        if (drawer_layout.isDrawerOpen(drawer)) {
+//            drawer_layout.closeDrawers();
+//            return false;
+//        }
+//        switch (keyCode) {
+//            case KeyEvent.KEYCODE_BACK:
+//                new MaterialDialog.Builder(this)
+//                        .title("退出")
+//                        .content("是否退出app")
+//                        .positiveText("是")
+//                        .negativeText("否").onAny(new MaterialDialog.SingleButtonCallback() {
+//                    @Override
+//                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+//                        switch (which) {
+//                            case POSITIVE:
+//                                AppManager.getAppManager().AppExit(mActivity);
+//                                break;
+//                            case NEGATIVE:
+//                                break;
+//                        }
+//                    }
+//                })
+//                        .show();
+//                return false;
+//        }
+//        return super.onKeyDown(keyCode, event);
+//    }
 }

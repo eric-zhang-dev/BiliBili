@@ -1,21 +1,22 @@
 package com.java.bilibili.ui.splash;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Toast;
 
 import com.bilibili.magicasakura.widgets.TintButton;
 import com.java.bilibili.R;
 import com.java.bilibili.base.BaseActivity;
 import com.java.bilibili.ui.main.MainActivity;
-import com.java.bilibili.widget.test.MyViewGroupA;
-import com.java.bilibili.widget.test.MyViewGroupB;
-import com.java.bilibili.widget.test.TestView;
+
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
 
 import butterknife.BindView;
+import io.reactivex.BackpressureStrategy;
+import io.reactivex.Flowable;
+import io.reactivex.FlowableEmitter;
+import io.reactivex.FlowableOnSubscribe;
 
 
 public class SplashActivity extends BaseActivity implements View.OnClickListener {
@@ -62,6 +63,46 @@ public class SplashActivity extends BaseActivity implements View.OnClickListener
 //        aa.setOnClickListener(this);
 //        bb.setOnClickListener(this);
 //        c.setOnClickListener(this);
+        Flowable<Integer> upstream = Flowable.create(new FlowableOnSubscribe<Integer>() {
+            @Override
+            public void subscribe(FlowableEmitter<Integer> emitter) throws Exception {
+                Log.d(TAG, "emit 1");
+                emitter.onNext(1);
+                Log.d(TAG, "emit 2");
+                emitter.onNext(2);
+                Log.d(TAG, "emit 3");
+                emitter.onNext(3);
+                Log.d(TAG, "emit complete");
+                emitter.onComplete();
+            }
+        }, BackpressureStrategy.ERROR); //增加了一个参数
+
+        Subscriber<Integer> downstream = new Subscriber<Integer>() {
+
+            @Override
+            public void onSubscribe(Subscription s) {
+                Log.d(TAG, "onSubscribe");
+                s.request(Long.MAX_VALUE);  //注意这句代码
+            }
+
+            @Override
+            public void onNext(Integer integer) {
+                Log.d(TAG, "onNext: " + integer);
+
+            }
+
+            @Override
+            public void onError(Throwable t) {
+                Log.w(TAG, "onError: ", t);
+            }
+
+            @Override
+            public void onComplete() {
+                Log.d(TAG, "onComplete");
+            }
+        };
+
+        upstream.subscribeWith(downstream);
     }
 
     @Override
