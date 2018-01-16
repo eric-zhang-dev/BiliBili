@@ -14,10 +14,51 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
-
-    buildTypes {
+    signingConfigs {
+        debug {
+//            storeFile file("D:\\xx.keystore")
+        }
         release {
+//            storeFile file("D:\\xx.keystore")
+        }
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+    buildTypes {
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            versionNameSuffix "-debug"
             minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.debug
+            //自动删除 unaligned .apks
+//            applicationVariants.all { variant ->
+//                variant.assemble.doLast {
+//                    variant.outputs.each { output ->
+//                        File unaligned = output.packageApplication.outputFile;
+//                        File aligned = output.outputFile
+//                        if (!unaligned.getName().equalsIgnoreCase(aligned.getName())) {
+//                            println "deleting " + unaligned.getName()
+//                            unaligned.delete()
+//                        }
+//                    }
+//                }
+//            }
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            // 不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            //混淆
+            minifyEnabled true
+            //Zipalign优化
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
+            //签名
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -31,6 +72,27 @@ android {
         exclude 'META-INF/notice.txt'
         exclude 'META-INF/ASL2.0'
         exclude 'META-INF/rxjava.properties'
+    }
+//    applicationVariants.all { variant ->
+//        variant.outputs.each { output ->
+//            def outputFile = output.outputFile
+//            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+//                String channel_name = variant.productFlavors[0].name
+//                def fileName = "BiliBili_${defaultConfig.versionName}_${releaseTime()}_${channel_name}.apk"
+//                output.outputFile = new File(outputFile.parent, fileName)
+//            }
+//        }
+//    }
+//    productFlavors.all { flavor ->
+//        flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name.replace("_", ".")]
+//    }
+//    sourceSets.main.jni.srcDirs = [] //disable automatic ndk-build call
+    lintOptions {
+        abortOnError false
+    }
+    compileOptions {//jdk版本
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 

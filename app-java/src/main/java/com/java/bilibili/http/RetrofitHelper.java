@@ -30,12 +30,8 @@ public class RetrofitHelper {
                 .connectTimeout(3000, TimeUnit.SECONDS)
                 .writeTimeout(3000, TimeUnit.SECONDS)
                 .readTimeout(3000, TimeUnit.SECONDS)
-                .addInterceptor(new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
-                    @Override
-                    public void log(String message) {
-                        KLog.json(message);
-                    }
-                }).setLevel(HttpLoggingInterceptor.Level.BASIC))
+                .addInterceptor(new HttpLoggingInterceptor(message -> KLog.json(message))
+                        .setLevel(HttpLoggingInterceptor.Level.BASIC))
                 .build();
 
         mRetrofit = new Retrofit.Builder()

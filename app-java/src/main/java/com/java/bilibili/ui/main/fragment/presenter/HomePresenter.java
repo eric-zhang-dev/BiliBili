@@ -24,8 +24,11 @@ import io.reactivex.schedulers.Schedulers;
 public class HomePresenter extends RxPresenter<HomeImpl.View> implements HomeImpl.Presenter {
     @Override
     public void getAnimaData(int tid, int pn) {
-        RetrofitHelper.getInstance().getApi().getAnima(tid + "", pn + "").subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread()).subscribeWith(new Observer<ServerResponse<Data>>() {
+        RetrofitHelper.getInstance().getApi().getAnima(tid + "", pn + "")
+//                .compose(RxUtil.rxSchedulerHelper())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new Observer<ServerResponse<Data>>() {
             @Override
             public void onSubscribe(Disposable d) {
                 addSubscribe(d);
