@@ -49,24 +49,5 @@ public class HomePresenter extends RxPresenter<HomeImpl.View> implements HomeImp
 
             }
         });
-//        addSubscribe(RetrofitHelper.getInstance().getApi().getAnima(tid+"",pn+"").compose()
-//                .subscribeWith()
-//        );
-//        toSubscribe(RetrofitHelper.getInstance().getApi().getAnimaList(tid + "", pn + ""), new Subscriber<ServerResponse<Data>>() {
-//            @Override
-//            public void onCompleted() {
-//
-//            }
-//
-//            @Override
-//            public void onError(Throwable e) {
-//
-//            }
-//
-//            @Override
-//            public void onNext(ServerResponse<Data> t) {
-//                mView.initDataInfo(t.getData());
-//            }
-//        });
     }
 }
