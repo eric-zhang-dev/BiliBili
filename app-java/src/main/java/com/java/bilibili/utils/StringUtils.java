@@ -28,8 +28,7 @@ public class StringUtils {
     private final static Pattern IMG_URL = Pattern
             .compile(".*?(gif|jpeg|png|jpg|bmp)");
 
-    private final static Pattern URL = Pattern
-            .compile("^(https|http)://.*?$(net|com|.com.cn|org|me|)");
+    private final static Pattern URL = Pattern.compile("^(https|http)://.*?$(net|com|.com.cn|org|me|)");
 
     private final static ThreadLocal<SimpleDateFormat> YYYYMMDDHHMMSS = new ThreadLocal<SimpleDateFormat>() {
         @Override
