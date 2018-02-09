@@ -16,7 +16,6 @@ public abstract class RxBaseFragment<T extends BasePresenter> extends Fragment i
     protected View mView;
     protected Activity mActivity;
     protected Context mContext;
-//    private Unbinder mUnBinder;
     protected boolean isInited = false;
 
     @Override
@@ -39,17 +38,12 @@ public abstract class RxBaseFragment<T extends BasePresenter> extends Fragment i
         super.onViewCreated(view, savedInstanceState);
         mPresenter = setPresenter();
         mPresenter.attachView(this);
-//        mUnBinder = ButterKnife.bind(this, view);
         if (savedInstanceState == null) {
             if (!isHidden()) {
                 isInited = true;
                 initData();
             }
         } else {
-            /*if (!isSupportHidden()) {
-                isInited = true;
-                initEventAndData();
-            }*/
         }
     }
 
@@ -67,7 +61,6 @@ public abstract class RxBaseFragment<T extends BasePresenter> extends Fragment i
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-//        mUnBinder.unbind();
     }
 
     @Override
