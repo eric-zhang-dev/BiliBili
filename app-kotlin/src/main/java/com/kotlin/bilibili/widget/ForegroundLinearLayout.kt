@@ -34,7 +34,7 @@ class ForegroundLinearLayout : LinearLayoutCompat {
         if (attrs != null) {
             val array = context.obtainStyledAttributes(attrs, R.styleable.ForegroundView)
             mForeground = array.getDrawable(R.styleable.ForegroundView_android_foreground)
-            setForeground(mForeground!!)
+            foreground = mForeground!!
             array.recycle()
         }
     }
