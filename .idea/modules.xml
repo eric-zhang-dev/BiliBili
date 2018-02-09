@@ -3,8 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BiliBili.iml" filepath="$PROJECT_DIR$/BiliBili.iml" />
+      <module fileurl="file://F:\pro\BiliBili\BiliBili.iml" filepath="F:\pro\BiliBili\BiliBili.iml" />
       <module fileurl="file://$PROJECT_DIR$/app-java/app-java.iml" filepath="$PROJECT_DIR$/app-java/app-java.iml" />
+      <module fileurl="file://F:\pro\BiliBili\app-java\app-java.iml" filepath="F:\pro\BiliBili\app-java\app-java.iml" />
       <module fileurl="file://$PROJECT_DIR$/app-kotlin/app-kotlin.iml" filepath="$PROJECT_DIR$/app-kotlin/app-kotlin.iml" />
+      <module fileurl="file://F:\pro\BiliBili\app-kotlin\app-kotlin.iml" filepath="F:\pro\BiliBili\app-kotlin\app-kotlin.iml" />
     </modules>
   </component>
 </project>
